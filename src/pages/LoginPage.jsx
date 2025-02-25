@@ -20,6 +20,7 @@ const LoginPage = () => {
 
   return (
     <>
+    <div className="body">
     <div className="login-container">
       <h2>Login</h2>
       <form className="login-form" onSubmit={handleLogin}>
@@ -41,6 +42,7 @@ const LoginPage = () => {
         />
         <button type="submit" className="login-button">Login</button>
       </form>
+    </div>
     </div>
     </>
   );

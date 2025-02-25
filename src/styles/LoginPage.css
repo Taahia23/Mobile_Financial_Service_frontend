@@ -17,7 +17,6 @@ h2 {
   font-family: serif;
 }
 
-/* Attractive Input Fields */
 .input-field {
   width: 80%;
   padding: 12px 15px;
@@ -30,7 +29,6 @@ h2 {
   justify-content: center;
 }
 
-/* Adding an icon-like effect inside input fields */
 .input-field::placeholder {
   color: #999;
   font-size: 14px;
@@ -42,7 +40,6 @@ h2 {
   outline: none;
 }
 
-/* Stylish Login Button */
 .login-button {
   width: 60%;
   background: linear-gradient(135deg, #DDEB9D, #A0C878);
@@ -63,7 +60,6 @@ h2 {
   transform: scale(0.98);
 }
 
-/* Form Layout */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -71,7 +67,6 @@ h2 {
   align-items: center;
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   .login-container {
       width: 90%;

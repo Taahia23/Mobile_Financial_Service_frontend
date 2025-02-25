@@ -1,0 +1,124 @@
+
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+.register-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .register-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: serif;
+  }
+  
+  .input-field {
+    width: 80%;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    background: #f9f9f9;
+    outline: none;
+  }
+  
+  .input-field::placeholder {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .input-field:focus {
+    border-color: #A0C878;
+    background: #fff;
+    outline: none;
+  }
+  
+  select.input-field {
+    cursor: pointer;
+  }
+  
+  .custom-dropdown {
+    width: 86%;
+    padding: 12px 15px;
+    border: 2px solid #A0C878;
+    border-radius: 25px;
+    font-size: 16px;
+    background: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-dropdown {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23999"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+  }
+
+.custom-dropdown option {
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .custom-dropdown option:hover {
+    background: #A0C878;
+    color: white;
+  }
+  
+
+  .login-button {
+    width: 60%;
+    background: linear-gradient(135deg, #DDEB9D, #A0C878);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(135deg, #A0C878, #DDEB9D);
+  }
+  
+  .login-button:active {
+    transform: scale(0.98);
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  @media (max-width: 480px) {
+    .register-container {
+      width: 90%;
+      padding: 20px;
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../styles/RegistrationPage.css";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -26,20 +27,23 @@ const RegisterPage = () => {
   };
 
   return (
+    <div className="body">
     <div className="register-container">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <input name="name" type="text" placeholder="Name" onChange={handleChange} required />
-        <input name="mobile" type="text" placeholder="Mobile Number" onChange={handleChange} required />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
-        <input name="nid" type="text" placeholder="NID" onChange={handleChange} required />
-        <input name="pin" type="password" placeholder="PIN (5 digits)" onChange={handleChange} required />
-        <select name="accountType" onChange={handleChange}>
-          <option value="User">User</option>
-          <option value="Agent">Agent</option>
+      <h2 className="register-title">Register</h2>
+      <form className="register-form" onSubmit={handleRegister}>
+        <input className="input-field" name="name" type="text" placeholder="Name" onChange={handleChange} required />
+        <input className="input-field" name="mobile" type="text" placeholder="Mobile Number" onChange={handleChange} required />
+        <input className="input-field" name="email" type="email" placeholder="Email" onChange={handleChange} required />
+        <input className="input-field" name="nid" type="text" placeholder="NID" onChange={handleChange} required />
+        <input className="input-field" name="pin" type="password" placeholder="PIN (5 digits)" onChange={handleChange} required />
+        <select className="custom-dropdown" name="accountType" onChange={handleChange}>
+            <option value="User" className="custom-option">User</option>
+            <option value="Agent" className="custom-option">Agent</option>
         </select>
-        <button type="submit">Register</button>
+
+        <button className="login-button" type="submit">Register</button>
       </form>
+    </div>
     </div>
   );
 };
