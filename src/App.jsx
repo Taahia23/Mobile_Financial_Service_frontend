@@ -18,6 +18,8 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
+import ProtectedRoute from "./componenrs/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage/>} />
+      <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
 
     </Routes>
   );
