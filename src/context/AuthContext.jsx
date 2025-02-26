@@ -10,16 +10,27 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            const decoded = jwtDecode(token);
-            setUser(decoded);
+            try {
+                const decoded = jwtDecode(token);
+                setUser(decoded);
+            } catch (error) {
+                console.error("Invalid Token Error:", error);
+                localStorage.removeItem("token");
+            }
         }
     }, []);
 
     const login = (token, navigate) => {
+        if (!token) return;
         localStorage.setItem("token", token);
-        const decoded = jwtDecode(token);
-        setUser(decoded);
-        navigate("/");
+        try {
+            const decoded = jwtDecode(token);
+            setUser(decoded);
+            navigate("/");
+        } catch (error) {
+            console.error("Invalid Token on Login:", error);
+            localStorage.removeItem("token");
+        }
     };
 
     const logout = (navigate) => {
@@ -30,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={{ user, login, logout }}>
-            {children}  {/* ✅ Just return children, No Router here! */}
+            {children}
         </AuthContext.Provider>
     );
 };
