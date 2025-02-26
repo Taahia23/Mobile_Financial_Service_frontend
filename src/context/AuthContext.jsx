@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const decoded = jwtDecode(token);
             setUser(decoded);
-            navigate("/");
+            navigate("/dashboard");
         } catch (error) {
             console.error("Invalid Token on Login:", error);
             localStorage.removeItem("token");
