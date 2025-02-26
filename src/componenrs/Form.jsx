@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import "../styles/Form.css";
 
 const TransactionForm = ({ type }) => {
   const [receiverMobile, setReceiverMobile] = useState("");
@@ -9,22 +10,57 @@ const TransactionForm = ({ type }) => {
   const handleTransaction = async (e) => {
     e.preventDefault();
     try {
+      if (!token) {
+        alert("No token found. Please log in.");
+        return;
+      }
+
+      let requestBody = { amount };
+
+      if (type === "cash-in") {
+        requestBody.agentMobile = receiverMobile;
+      } else {
+        requestBody.receiverMobile = receiverMobile;
+      }
+
       const url = `http://localhost:5000/api/transactions/${type}`;
-      await axios.post(url, { receiverMobile, amount }, { headers: { Authorization: `Bearer ${token}` } });
+      const { data } = await axios.post(url, requestBody, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
       alert(`${type.replace("-", " ")} successful!`);
       setReceiverMobile("");
       setAmount("");
+
+      window.location.reload();
+
     } catch (error) {
-      alert("Error: " + error.response.data.message);
+      console.error("Transaction error:", error);
+      alert("Error: " + error.response?.data?.message);
     }
   };
 
   return (
-    <form onSubmit={handleTransaction}>
+
+    <form className="transaction-form" onSubmit={handleTransaction}>
       <h3>{type.replace("-", " ")}</h3>
-      <input type="text" placeholder="Receiver Mobile" value={receiverMobile} onChange={(e) => setReceiverMobile(e.target.value)} required />
-      <input type="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+      <div>
+        <input
+        type="text"
+        placeholder="Receiver Mobile"
+        value={receiverMobile}
+        onChange={(e) => setReceiverMobile(e.target.value)}
+        required
+      />
+      <input
+        type="number"
+        placeholder="Amount"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        required
+      />
+      </div>
+      
       <button type="submit">Submit</button>
     </form>
   );
