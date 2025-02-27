@@ -18,8 +18,19 @@ const RegisterPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/api/auth/register", formData);
+    
+try {
+  await axios.post(
+      "https://backend-owff68ik2-taahia-tahsins-projects.vercel.app/api/auth/register",
+      formData,
+      {
+          headers: { 
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest"
+          },
+          withCredentials: true 
+      }
+  );
       alert("Registration Successful! Please log in.");
     } catch (error) {
       alert("Error: " + error.response.data.message);

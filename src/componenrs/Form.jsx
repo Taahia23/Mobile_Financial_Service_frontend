@@ -23,7 +23,7 @@ const TransactionForm = ({ type }) => {
         requestBody.receiverMobile = receiverMobile;
       }
 
-      const url = `http://localhost:5000/api/transactions/${type}`;
+      const url = `https://backend-owff68ik2-taahia-tahsins-projects.vercel.app/api/transactions/${type}`;
       const { data } = await axios.post(url, requestBody, {
         headers: { Authorization: `Bearer ${token}` },
       });

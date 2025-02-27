@@ -6,7 +6,7 @@
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    background: linear-gradient(135deg, #A0C878, #DDEB9D);
     color: white;
     font-family: 'Arial', sans-serif;
     width: 100%;
@@ -28,7 +28,7 @@
 .btn {
     padding: 12px 24px;
     background: white;
-    color: #6e8efb;
+    color: #A0C878;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -39,7 +39,7 @@
 }
 
 .btn:hover {
-    background: #4e69d6;
+    background: #A0C878;
     color: white;
     transform: scale(1.05);
 }

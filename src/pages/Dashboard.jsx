@@ -23,7 +23,7 @@ const Dashboard = () => {
                     return;
                 }
     
-                const { data } = await axios.get("http://localhost:5000/api/user/balance", {
+                const { data } = await axios.get("https://backend-owff68ik2-taahia-tahsins-projects.vercel.app/api/user/balance", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setBalance(data.balance);
@@ -37,7 +37,6 @@ const Dashboard = () => {
     }, [token, balance]);
     
     
-
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
@@ -50,21 +49,6 @@ const Dashboard = () => {
                 <h3>Balance: {balance !== null ? `${balance} Taka` : "Loading..."}</h3>
 
                 <p>Manage your account settings, transactions, and preferences easily from here.</p>
-
-                <div className="dashboard-cards">
-                    <div className="card">
-                        <h3>Profile</h3>
-                        <p>View and update your profile details.</p>
-                    </div>
-                    <div className="card">
-                        <h3>Transactions</h3>
-                        <p>Check your recent transactions and history.</p>
-                    </div>
-                    <div className="card">
-                        <h3>Settings</h3>
-                        <p>Adjust your account settings and preferences.</p>
-                    </div>
-                </div>
                 <TransactionForm type="send-money" />
                        {user?.accountType === "User" && <TransactionForm type="cash-out" />}
                        {user?.accountType === "Agent" && <TransactionForm type="cash-in" />}

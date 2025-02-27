@@ -13,14 +13,20 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      console.log("Sending Login Request with:", { email, pin });
-      const { data } = await axios.post("http://localhost:5000/api/auth/login", { email, pin: pin.toString().trim() });
-      console.log("Server Response:", data);
-      login(data.token, navigate);
+        console.log("Sending Login Request with:", { email, pin });
+        const { data } = await axios.post(
+            "https://backend-owff68ik2-taahia-tahsins-projects.vercel.app/api/auth/login",
+            { email, pin: pin.toString().trim() },
+            { withCredentials: true }
+        );
+        console.log("Server Response:", data);
+        login(data.token, navigate);
     } catch (error) {
-      alert("Login failed: " + error);
+        console.error("Login failed:", error.response ? error.response.data : error.message);
+        alert("Login failed: " + (error.response?.data?.message || "Unknown error"));
     }
-  };
+};
+
 
   return (
     <div className="body">
